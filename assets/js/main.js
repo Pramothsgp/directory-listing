@@ -5,9 +5,6 @@ import "./filters.js";
 import "./forms.js";
 import "./dashboard.js";
 
-// ==========================================
-// 1. GLOBAL HEADER AUTH STATE MANAGER
-// ==========================================
 function updateHeaderAuth() {
   const headerActions = document.querySelector(".site-header .actions");
   if (!headerActions) return;
@@ -15,7 +12,6 @@ function updateHeaderAuth() {
   const user = db.getCurrentUser();
   
   if (user) {
-    // Generate logged-in actions menu
     headerActions.innerHTML = `
       <button class="icon-btn" data-theme-toggle aria-label="Switch theme">
         ${document.documentElement.dataset.theme === "dark" ? "☀" : "☾"}
@@ -26,8 +22,7 @@ function updateHeaderAuth() {
       <a class="btn btn-ghost btn-small" href="dashboard.html">Dashboard</a>
       <button id="global-logout-btn" class="btn btn-primary btn-small">Log out</button>
     `;
-    
-    // Add logout listener
+
     const logoutBtn = document.getElementById("global-logout-btn");
     if (logoutBtn) {
       logoutBtn.addEventListener("click", () => {
@@ -36,26 +31,21 @@ function updateHeaderAuth() {
       });
     }
 
-    // Reinitialize theme toggle in new elements
     import("./theme-toggle.js");
   }
 }
 
-// ==========================================
-// 2. DYNAMIC HOMEPAGE RENDERER (index.html)
-// ==========================================
 function renderIndexListings() {
   const cardsGrid = document.querySelector("main#main .grid.cards");
   if (!cardsGrid) return;
 
-  const listings = db.getListings().slice(0, 4); // Take first 4 listings
+  const listings = db.getListings().slice(0, 4);
   cardsGrid.innerHTML = "";
 
   listings.forEach((listing) => {
     const card = document.createElement("article");
     card.className = "card listing";
-    
-    // Autogenerate listing logo color index
+
     card.innerHTML = `
       <div class="listing__top">
         <b class="listing__logo">${listing.title.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase()}</b>
@@ -74,9 +64,6 @@ function renderIndexListings() {
   });
 }
 
-// ==========================================
-// 3. DYNAMIC DIRECTORY & FILTER ENGINE (listings.html)
-// ==========================================
 function setupDirectoryEngine() {
   const listingsGrid = document.querySelector("main .filter-layout .grid.cards");
   if (!listingsGrid) return;
@@ -89,7 +76,6 @@ function setupDirectoryEngine() {
   const renderDirectory = () => {
     let listings = db.getListings();
 
-    // 1. Title/Search Query filter
     if (searchInput && searchInput.value.trim() !== "") {
       const q = searchInput.value.toLowerCase();
       listings = listings.filter(l => 
@@ -99,44 +85,38 @@ function setupDirectoryEngine() {
       );
     }
 
-    // 2. Location filter (from Search Bar)
     if (locationSelect && locationSelect.value !== "All locations" && locationSelect.value !== "Any location") {
       const loc = locationSelect.value.toLowerCase();
       listings = listings.filter(l => l.location.toLowerCase() === loc);
     }
 
-    // 3. Category sidebar checkboxes
     if (sidebarFilters) {
       const checkedCategories = Array.from(sidebarFilters.querySelectorAll("section:nth-of-type(1) input[type='checkbox']:checked"))
         .map(cb => cb.parentNode.textContent.trim().toLowerCase());
-      
+
       if (checkedCategories.length > 0) {
         listings = listings.filter(l => checkedCategories.some(cat => l.category.toLowerCase().includes(cat)));
       }
 
-      // 4. Sidebar Location select
       const sideLocSelect = sidebarFilters.querySelector("section:nth-of-type(2) select");
       if (sideLocSelect && sideLocSelect.value !== "Any location") {
         const sideLoc = sideLocSelect.value.toLowerCase();
         listings = listings.filter(l => l.location.toLowerCase() === sideLoc);
       }
 
-      // 5. Listing Type checkboxes
       const checkedTypes = Array.from(sidebarFilters.querySelectorAll("section:nth-of-type(3) input[type='checkbox']:checked"))
         .map(cb => cb.parentNode.textContent.trim().toLowerCase());
-      
+
       if (checkedTypes.length > 0) {
         listings = listings.filter(l => checkedTypes.some(type => l.badge.toLowerCase().includes(type)));
       }
     }
 
-    // Update Toolbar details
     const countEl = document.querySelector(".toolbar span.muted");
     if (countEl) {
       countEl.textContent = `Showing 1–${listings.length} of ${listings.length} businesses`;
     }
 
-    // Render filtered items
     listingsGrid.innerHTML = "";
     if (listings.length === 0) {
       listingsGrid.innerHTML = `
@@ -168,44 +148,37 @@ function setupDirectoryEngine() {
     });
   };
 
-  // Attach search listeners
   if (searchForm) {
     searchForm.addEventListener("submit", (e) => {
       e.preventDefault();
       renderDirectory();
     });
-    
+
     if (searchInput) searchInput.addEventListener("input", renderDirectory);
     if (locationSelect) locationSelect.addEventListener("change", renderDirectory);
   }
 
-  // Attach sidebar filter listeners
   if (sidebarFilters) {
     sidebarFilters.querySelectorAll("input[type='checkbox']").forEach(cb => {
       cb.addEventListener("change", renderDirectory);
     });
-    
+
     const sideLocSelect = sidebarFilters.querySelector("section:nth-of-type(2) select");
     if (sideLocSelect) {
       sideLocSelect.addEventListener("change", renderDirectory);
     }
   }
 
-  // Run initial render
   renderDirectory();
 }
 
-// ==========================================
-// 4. DYNAMIC PROFILE DETAIL RENDERER (listing-detail.html)
-// ==========================================
 function renderListingDetails() {
   const detailContainer = document.querySelector("main .container.split");
   if (!detailContainer) return;
 
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("id");
-  
-  // default to first listing if no ID specified
+
   const listing = id ? db.getListing(id) : db.getListings()[0];
 
   if (!listing) {
@@ -219,13 +192,11 @@ function renderListingDetails() {
     return;
   }
 
-  // Render breadcrumbs
   const crumbEl = document.querySelector(".crumb");
   if (crumbEl) {
     crumbEl.innerHTML = `<a href="index.html">Home</a> / <a href="listings.html">Directory</a> / ${listing.title}`;
   }
 
-  // Populate dynamic detail layout
   detailContainer.innerHTML = `
     <div class="stack">
       <article class="card content">
@@ -261,9 +232,7 @@ function renderListingDetails() {
 
       <article class="card content">
         <h2>Related listings</h2>
-        <div class="grid cards" id="related-listings-grid">
-          <!-- Dynamic Related Listings -->
-        </div>
+        <div class="grid cards" id="related-listings-grid"></div>
       </article>
     </div>
 
@@ -286,7 +255,6 @@ function renderListingDetails() {
     </aside>
   `;
 
-  // Render related listings (same category, excluding current)
   const relatedGrid = document.getElementById("related-listings-grid");
   if (relatedGrid) {
     const related = db.getListings()
@@ -294,18 +262,16 @@ function renderListingDetails() {
       .slice(0, 2);
 
     if (related.length === 0) {
-      // Fallback related listings if no same-category matches
       const fallback = db.getListings()
         .filter(l => l.id !== listing.id)
         .slice(0, 2);
-      
+
       fallback.forEach(r => renderRelatedCard(relatedGrid, r));
     } else {
       related.forEach(r => renderRelatedCard(relatedGrid, r));
     }
   }
 
-  // Interactive Save Listing
   const saveBtn = document.getElementById("save-listing-btn");
   if (saveBtn) {
     saveBtn.addEventListener("click", () => {
@@ -327,9 +293,6 @@ function renderRelatedCard(container, r) {
   container.appendChild(card);
 }
 
-// ==========================================
-// 5. BOOTSTRAP INTERACTIVE APPLICATIONS
-// ==========================================
 document.addEventListener("DOMContentLoaded", () => {
   updateHeaderAuth();
   

@@ -1,5 +1,3 @@
-// BrandDigits LocalStorage Database & Session Mockup Engine
-
 const defaultListings = [
   {
     id: "northstar-studio",
@@ -103,7 +101,6 @@ const defaultListings = [
   }
 ];
 
-// Initialize Database
 if (!localStorage.getItem("branddigits_listings")) {
   localStorage.setItem("branddigits_listings", JSON.stringify(defaultListings));
 }
@@ -114,7 +111,6 @@ if (!localStorage.getItem("branddigits_users")) {
 }
 
 export const db = {
-  // listings database actions
   getListings() {
     return JSON.parse(localStorage.getItem("branddigits_listings")) || [];
   },
@@ -128,9 +124,7 @@ export const db = {
     const user = this.getCurrentUser();
     
     if (!listingData.id) {
-      // Create new listing
       listingData.id = listingData.title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-      // ensure uniqueness
       if (listings.some(l => l.id === listingData.id)) {
         listingData.id += "-" + Math.floor(Math.random() * 1000);
       }
@@ -139,10 +133,8 @@ export const db = {
       listingData.author = user ? user.email : "guest@branddigits.com";
       listings.push(listingData);
     } else {
-      // Update existing listing
       const index = listings.findIndex(l => l.id === listingData.id);
       if (index !== -1) {
-        // preserve rating / reviews
         listingData.rating = listings[index].rating;
         listingData.reviews = listings[index].reviews;
         listingData.author = listings[index].author;
@@ -159,8 +151,7 @@ export const db = {
     const filtered = listings.filter(l => l.id !== id);
     localStorage.setItem("branddigits_listings", JSON.stringify(filtered));
   },
-  
-  // User authentication actions
+
   getUsers() {
     return JSON.parse(localStorage.getItem("branddigits_users")) || [];
   },
@@ -178,8 +169,7 @@ export const db = {
     const newUser = { email, password, name };
     users.push(newUser);
     localStorage.setItem("branddigits_users", JSON.stringify(users));
-    
-    // Login automatically
+
     this.setCurrentUser({ email, name });
     return { email, name };
   },

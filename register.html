@@ -97,7 +97,6 @@
     <script type="module">
       import { db } from "./assets/js/db.js";
 
-      // If already logged in, go to dashboard
       if (db.getCurrentUser()) {
         window.location.href = "dashboard.html";
       }

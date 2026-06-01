@@ -1,0 +1,129 @@
+.dashboard {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.dash-nav {
+  padding: 0.75rem;
+}
+
+.dash-nav a {
+  display: block;
+  padding: 0.75rem 1.1rem;
+  border-radius: 10px;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.dash-nav a:hover, .dash-nav .active {
+  background-color: var(--primary-soft);
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+.dash-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.dash-stat {
+  padding: 1.5rem;
+}
+
+.dash-stat strong {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+  background-color: var(--surface-solid);
+}
+
+.table th, .table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.table th {
+  background-color: var(--surface2);
+  color: var(--muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr {
+  transition: background-color 0.2s ease;
+}
+
+.table tr:hover td {
+  background-color: var(--surface3);
+}
+
+.empty {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+}
+
+.skeleton {
+  height: 16px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--surface3), var(--border), var(--surface3));
+  background-size: 200%;
+  animation: pulseSkeleton 1.6s infinite;
+}
+
+@keyframes pulseSkeleton {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  place-items: center;
+  padding: 1rem;
+  background-color: rgba(2, 6, 17, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal.open {
+  display: grid;
+}
+
+.modal__panel {
+  width: min(100% - 1rem, 480px);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.3);
+  animation: slideInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+

@@ -1,0 +1,47 @@
+.grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.cards {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  counter-reset: listing-rank;
+}
+
+.categories {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.split {
+  display: grid;
+  gap: 2rem;
+}
+
+.cluster {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.stack {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  transition: all 0.3s;
+}
+
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 50;
+  background: var(--surface-solid);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--primary);
+  box-shadow: var(--shadow);
+}

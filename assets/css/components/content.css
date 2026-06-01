@@ -1,0 +1,108 @@
+.feature, .quote, .content {
+  padding: 1.8rem;
+}
+
+.feature b {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.2rem;
+  place-items: center;
+  border-radius: 14px;
+  background-color: var(--primary-soft);
+  color: var(--primary);
+  font-size: 1.2rem;
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  box-shadow: var(--shadow-inset);
+  transition: all 0.3s ease;
+}
+
+.feature:hover b {
+  background-color: var(--primary);
+  color: #ffffff;
+  transform: translateY(-3px) rotate(5deg);
+}
+
+.quote p {
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.6;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.quote__author {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.avatar {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 50%;
+  background-color: var(--surface3);
+  color: var(--primary);
+  font-weight: 800;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-inset);
+}
+
+.blog {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.blog__img {
+  height: 160px;
+  background: linear-gradient(135deg, var(--primary-soft), var(--accent-soft));
+  position: relative;
+  overflow: hidden;
+}
+
+.blog__img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.15), transparent 60%);
+  transition: transform 0.6s ease;
+}
+
+.blog:hover .blog__img::after {
+  transform: scale(1.2);
+}
+
+.blog__body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog__body .badge {
+  align-self: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.blog h3 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.blog h3 a:hover {
+  color: var(--primary);
+}
+
+.blog__body .meta {
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: auto;
+}
+
