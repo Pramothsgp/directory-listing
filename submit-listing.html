@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="Add or edit your business listing on BrandDigits." />
+    <meta
+      name="description"
+      content="Add or edit your business listing on BrandDigits."
+    />
     <title>Submit Listing | BrandDigits</title>
     <script src="assets/js/boot.js"></script>
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -21,10 +24,18 @@
           <a href="locations.html">Locations</a>
         </nav>
         <div class="actions" id="header-actions">
-          <button class="icon-btn" data-theme-toggle aria-label="Switch theme">☾</button>
-          <span id="user-profile" class="muted" style="display:none; font-weight:700;"></span>
+          <button class="icon-btn" data-theme-toggle aria-label="Switch theme">
+            ☾
+          </button>
+          <span
+            id="user-profile"
+            class="muted"
+            style="display: none; font-weight: 700"
+          ></span>
           <a class="btn btn-ghost" href="dashboard.html">Dashboard</a>
-          <button id="logout-btn" class="btn btn-small btn-ghost">Log out</button>
+          <button id="logout-btn" class="btn btn-small btn-ghost">
+            Log out
+          </button>
         </div>
       </div>
     </header>
@@ -32,14 +43,20 @@
     <main id="main">
       <section class="page-head">
         <div class="container">
-          <div class="crumb"><a href="index.html">Home</a> / <a href="dashboard.html">Dashboard</a> / Submit</div>
+          <div class="crumb">
+            <a href="index.html">Home</a> /
+            <a href="dashboard.html">Dashboard</a> / Submit
+          </div>
           <h1 id="page-title">Add your business</h1>
-          <p class="muted">Create an authoritative listing and get discovered by thousands of customers daily.</p>
+          <p class="muted">
+            Create an authoritative listing and get discovered by thousands of
+            customers daily.
+          </p>
         </div>
       </section>
 
       <section class="section">
-        <div class="container" style="max-width: 800px;">
+        <div class="container" style="max-width: 800px">
           <div class="steps">
             <div class="step active" data-step>1. Info</div>
             <div class="step" data-step>2. Details</div>
@@ -51,11 +68,19 @@
             <input type="hidden" id="listing-id" />
 
             <div class="form-step active" data-form-step>
-              <h2 style="font-size: 1.4rem; margin-bottom: 1.25rem;">General business information</h2>
+              <h2 style="font-size: 1.4rem; margin-bottom: 1.25rem">
+                General business information
+              </h2>
               <div class="form-grid">
                 <div class="form-group">
                   <label for="title">Business Name</label>
-                  <input type="text" id="title" class="field" placeholder="e.g. Acme Tech Solutions" required />
+                  <input
+                    type="text"
+                    id="title"
+                    class="field"
+                    placeholder="e.g. Acme Tech Solutions"
+                    required
+                  />
                 </div>
                 <div class="form-group">
                   <label for="category">Category</label>
@@ -84,72 +109,142 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="description">Short Description (Cards view)</label>
-                  <input type="text" id="description" class="field" placeholder="One-line snippet of what you do" maxlength="100" required />
+                  <label for="description"
+                    >Short Description (Cards view)</label
+                  >
+                  <input
+                    type="text"
+                    id="description"
+                    class="field"
+                    placeholder="One-line snippet of what you do"
+                    maxlength="100"
+                    required
+                  />
                 </div>
               </div>
               <div class="form-actions">
                 <span></span>
-                <button type="button" class="btn btn-primary" data-next>Next step</button>
+                <button type="button" class="btn btn-primary" data-next>
+                  Next step
+                </button>
               </div>
             </div>
 
             <div class="form-step" data-form-step>
-              <h2 style="font-size: 1.4rem; margin-bottom: 1.25rem;">Tell us more about your business</h2>
+              <h2 style="font-size: 1.4rem; margin-bottom: 1.25rem">
+                Tell us more about your business
+              </h2>
               <div class="form-grid">
                 <div class="form-group">
-                  <label for="details">Full business description (About section)</label>
-                  <textarea id="details" class="textarea" placeholder="Tell potential clients what makes your service stand out..." required></textarea>
+                  <label for="details"
+                    >Full business description (About section)</label
+                  >
+                  <textarea
+                    id="details"
+                    class="textarea"
+                    placeholder="Tell potential clients what makes your service stand out..."
+                    required
+                  ></textarea>
                 </div>
                 <div class="form-group">
                   <label for="address">Physical Address</label>
-                  <input type="text" id="address" class="field" placeholder="e.g. 100 Main St, Austin, TX" required />
+                  <input
+                    type="text"
+                    id="address"
+                    class="field"
+                    placeholder="e.g. 100 Main St, Austin, TX"
+                    required
+                  />
                 </div>
               </div>
               <div class="form-actions">
-                <button type="button" class="btn btn-ghost" data-back>Back</button>
-                <button type="button" class="btn btn-primary" data-next>Next step</button>
+                <button type="button" class="btn btn-ghost" data-back>
+                  Back
+                </button>
+                <button type="button" class="btn btn-primary" data-next>
+                  Next step
+                </button>
               </div>
             </div>
 
             <div class="form-step" data-form-step>
-              <h2 style="font-size: 1.4rem; margin-bottom: 1.25rem;">Contact & Web information</h2>
+              <h2 style="font-size: 1.4rem; margin-bottom: 1.25rem">
+                Contact & Web information
+              </h2>
               <div class="form-grid">
                 <div class="form-group">
                   <label for="phone">Phone Number</label>
-                  <input type="tel" id="phone" class="field" placeholder="e.g. (512) 555-0100" required />
+                  <input
+                    type="tel"
+                    id="phone"
+                    class="field"
+                    placeholder="e.g. (512) 555-0100"
+                    required
+                  />
                 </div>
                 <div class="form-group">
                   <label for="email">Public Contact Email</label>
-                  <input type="email" id="email" class="field" placeholder="contact@yourbusiness.com" required />
+                  <input
+                    type="email"
+                    id="email"
+                    class="field"
+                    placeholder="contact@yourbusiness.com"
+                    required
+                  />
                 </div>
                 <div class="form-group">
                   <label for="website">Website Link</label>
-                  <input type="url" id="website" class="field" placeholder="https://yourbusiness.com" required />
+                  <input
+                    type="url"
+                    id="website"
+                    class="field"
+                    placeholder="https://yourbusiness.com"
+                    required
+                  />
                 </div>
               </div>
               <div class="form-actions">
-                <button type="button" class="btn btn-ghost" data-back>Back</button>
-                <button type="button" class="btn btn-primary" data-next>Next step</button>
+                <button type="button" class="btn btn-ghost" data-back>
+                  Back
+                </button>
+                <button type="button" class="btn btn-primary" data-next>
+                  Next step
+                </button>
               </div>
             </div>
 
             <div class="form-step" data-form-step>
-              <h2 style="font-size: 1.4rem; margin-bottom: 1.25rem;">Ready to publish</h2>
-              <p class="muted">By publishing this listing, you confirm that you represent this business. Premium listing upgrades and reviews are moderated. No images are needed for active directory listings.</p>
-              
-              <div class="form-group" style="margin-top: 1.25rem;">
+              <h2 style="font-size: 1.4rem; margin-bottom: 1.25rem">
+                Ready to publish
+              </h2>
+              <p class="muted">
+                By publishing this listing, you confirm that you represent this
+                business. Premium listing upgrades and reviews are moderated. No
+                images are needed for active directory listings.
+              </p>
+
+              <div class="form-group" style="margin-top: 1.25rem">
                 <label for="badge">Select Badge tier</label>
                 <select id="badge" class="select">
-                  <option value="Verified">Verified listing (Standard Free)</option>
-                  <option value="Featured">Featured listing (High ranking)</option>
-                  <option value="Premium">Premium listing (Sunset Amber rank glow)</option>
+                  <option value="Verified">
+                    Verified listing (Standard Free)
+                  </option>
+                  <option value="Featured">
+                    Featured listing (High ranking)
+                  </option>
+                  <option value="Premium">
+                    Premium listing (Sunset Amber rank glow)
+                  </option>
                 </select>
               </div>
 
-              <div class="form-actions" style="margin-top: 2rem;">
-                <button type="button" class="btn btn-ghost" data-back>Back</button>
-                <button type="submit" class="btn btn-accent" id="submit-btn">Publish listing</button>
+              <div class="form-actions" style="margin-top: 2rem">
+                <button type="button" class="btn btn-ghost" data-back>
+                  Back
+                </button>
+                <button type="submit" class="btn btn-accent" id="submit-btn">
+                  Publish listing
+                </button>
               </div>
             </div>
           </form>
@@ -211,17 +306,21 @@
 
       const urlParams = new URLSearchParams(window.location.search);
       const editId = urlParams.get("id");
-      
+
       if (editId) {
         const listing = db.getListing(editId);
         if (listing) {
-          if (listing.author !== user.email && user.email !== "admin@branddigits.com") {
+          if (
+            listing.author !== user.email &&
+            user.email !== "admin@branddigits.com"
+          ) {
             window.location.href = "dashboard.html";
           }
-          
-          document.getElementById("page-title").textContent = "Edit your business listing";
+
+          document.getElementById("page-title").textContent =
+            "Edit your business listing";
           document.getElementById("submit-btn").textContent = "Save changes";
-          
+
           document.getElementById("listing-id").value = listing.id;
           document.getElementById("title").value = listing.title;
           document.getElementById("category").value = listing.category;
@@ -251,7 +350,7 @@
           phone: document.getElementById("phone").value,
           email: document.getElementById("email").value,
           website: document.getElementById("website").value,
-          badge: document.getElementById("badge").value
+          badge: document.getElementById("badge").value,
         };
 
         db.saveListing(listingData);
