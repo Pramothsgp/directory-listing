@@ -36,11 +36,18 @@
   gap: 2rem;
 }
 
+.directory-listings {
+  grid-template-columns: 1fr;
+}
+
+.directory-sidebar {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+}
+
 .filter {
   padding: 1.5rem;
-  position: sticky;
-  top: 100px;
-  z-index: 10;
 }
 
 .filter h3 {
@@ -154,3 +161,11 @@
   box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
+
+@media (min-width: 900px) {
+  .directory-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+}
