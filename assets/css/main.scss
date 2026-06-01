@@ -1,0 +1,7 @@
+// Static prototype source entry. The deployable stylesheet is main.css.
+@use "base/tokens";
+@use "base/reset";
+@use "layout/layout";
+@use "components/components";
+@use "pages/pages";
+@use "themes/dark";

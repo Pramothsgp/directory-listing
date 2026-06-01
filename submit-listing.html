@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Add or edit your business listing on BrandDigits." />
+    <title>Submit Listing | BrandDigits</title>
+    <script src="assets/js/boot.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container site-header__in">
+        <a href="index.html"
+          ><img class="logo" src="assets/images/logo.svg" alt="BrandDigits"
+        /></a>
+        <nav class="nav" id="header-nav">
+          <a href="listings.html">Directory</a>
+          <a href="categories.html">Categories</a>
+          <a href="locations.html">Locations</a>
+        </nav>
+        <div class="actions" id="header-actions">
+          <button class="icon-btn" data-theme-toggle aria-label="Switch theme">☾</button>
+          <span id="user-profile" class="muted" style="display:none; font-weight:700;"></span>
+          <a class="btn btn-ghost" href="dashboard.html">Dashboard</a>
+          <button id="logout-btn" class="btn btn-small btn-ghost">Log out</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-head">
+        <div class="container">
+          <div class="crumb"><a href="index.html">Home</a> / <a href="dashboard.html">Dashboard</a> / Submit</div>
+          <h1 id="page-title">Add your business</h1>
+          <p class="muted">Create an authoritative listing and get discovered by thousands of customers daily.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container" style="max-width: 800px;">
+          <div class="steps">
+            <div class="step active" data-step>1. Info</div>
+            <div class="step" data-step>2. Details</div>
+            <div class="step" data-step>3. Contact</div>
+            <div class="step" data-step>4. Confirm</div>
+          </div>
+
+          <form id="submit-listing-form" class="card content form-grid">
+            <!-- Hidden ID Field for Editing -->
+            <input type="hidden" id="listing-id" />
+
+            <!-- Step 1: Info -->
+            <div class="form-step active" data-form-step>
+              <h2 style="font-size: 1.4rem; margin-bottom: 1.25rem;">General business information</h2>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="title">Business Name</label>
+                  <input type="text" id="title" class="field" placeholder="e.g. Acme Tech Solutions" required />
+                </div>
+                <div class="form-group">
+                  <label for="category">Category</label>
+                  <select id="category" class="select" required>
+                    <option value="">Select a category</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Home Services">Home Services</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Legal Services">Legal Services</option>
+                    <option value="Food & Dining">Food & Dining</option>
+                    <option value="Finance">Finance</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="location">Location (City)</label>
+                  <select id="location" class="select" required>
+                    <option value="">Select city</option>
+                    <option value="New York">New York</option>
+                    <option value="Austin">Austin</option>
+                    <option value="San Francisco">San Francisco</option>
+                    <option value="Denver">Denver</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Portland">Portland</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="description">Short Description (Cards view)</label>
+                  <input type="text" id="description" class="field" placeholder="One-line snippet of what you do" maxlength="100" required />
+                </div>
+              </div>
+              <div class="form-actions">
+                <span></span>
+                <button type="button" class="btn btn-primary" data-next>Next step</button>
+              </div>
+            </div>
+
+            <!-- Step 2: Details -->
+            <div class="form-step" data-form-step>
+              <h2 style="font-size: 1.4rem; margin-bottom: 1.25rem;">Tell us more about your business</h2>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="details">Full business description (About section)</label>
+                  <textarea id="details" class="textarea" placeholder="Tell potential clients what makes your service stand out..." required></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="address">Physical Address</label>
+                  <input type="text" id="address" class="field" placeholder="e.g. 100 Main St, Austin, TX" required />
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn btn-ghost" data-back>Back</button>
+                <button type="button" class="btn btn-primary" data-next>Next step</button>
+              </div>
+            </div>
+
+            <!-- Step 3: Contact -->
+            <div class="form-step" data-form-step>
+              <h2 style="font-size: 1.4rem; margin-bottom: 1.25rem;">Contact & Web information</h2>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" class="field" placeholder="e.g. (512) 555-0100" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Public Contact Email</label>
+                  <input type="email" id="email" class="field" placeholder="contact@yourbusiness.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="website">Website Link</label>
+                  <input type="url" id="website" class="field" placeholder="https://yourbusiness.com" required />
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn btn-ghost" data-back>Back</button>
+                <button type="button" class="btn btn-primary" data-next>Next step</button>
+              </div>
+            </div>
+
+            <!-- Step 4: Confirm -->
+            <div class="form-step" data-form-step>
+              <h2 style="font-size: 1.4rem; margin-bottom: 1.25rem;">Ready to publish</h2>
+              <p class="muted">By publishing this listing, you confirm that you represent this business. Premium listing upgrades and reviews are moderated. No images are needed for active directory listings.</p>
+              
+              <div class="form-group" style="margin-top: 1.25rem;">
+                <label for="badge">Select Badge tier</label>
+                <select id="badge" class="select">
+                  <option value="Verified">Verified listing (Standard Free)</option>
+                  <option value="Featured">Featured listing (High ranking)</option>
+                  <option value="Premium">Premium listing (Sunset Amber rank glow)</option>
+                </select>
+              </div>
+
+              <div class="form-actions" style="margin-top: 2rem;">
+                <button type="button" class="btn btn-ghost" data-back>Back</button>
+                <button type="submit" class="btn btn-accent" id="submit-btn">Publish listing</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <img class="logo" src="assets/images/logo.svg" alt="BrandDigits" />
+            <p class="muted">A modern directory for trusted businesses.</p>
+          </div>
+          <div>
+            <h3>Explore</h3>
+            <div class="footer-links">
+              <a href="listings.html">Directory</a>
+              <a href="categories.html">Categories</a>
+              <a href="locations.html">Locations</a>
+            </div>
+          </div>
+          <div>
+            <h3>Business</h3>
+            <div class="footer-links">
+              <a href="submit-listing.html">Add listing</a>
+              <a href="dashboard.html">Dashboard</a>
+            </div>
+          </div>
+          <div>
+            <h3>Company</h3>
+            <div class="footer-links">
+              <a href="#">About</a>
+              <a href="#">Blog</a>
+              <a href="#">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">© 2026 BrandDigits. Static UI prototype.</div>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { db } from "./assets/js/db.js";
+
+      // Authentication check
+      const user = db.getCurrentUser();
+      if (!user) {
+        window.location.href = "login.html";
+      } else {
+        const profileEl = document.getElementById("user-profile");
+        profileEl.textContent = user.name;
+        profileEl.style.display = "inline";
+      }
+
+      // Logout function
+      document.getElementById("logout-btn").addEventListener("click", () => {
+        db.logout();
+        window.location.href = "index.html";
+      });
+
+      // Check if we are in EDIT mode
+      const urlParams = new URLSearchParams(window.location.search);
+      const editId = urlParams.get("id");
+      
+      if (editId) {
+        const listing = db.getListing(editId);
+        if (listing) {
+          // Author check
+          if (listing.author !== user.email && user.email !== "admin@branddigits.com") {
+            window.location.href = "dashboard.html";
+          }
+          
+          document.getElementById("page-title").textContent = "Edit your business listing";
+          document.getElementById("submit-btn").textContent = "Save changes";
+          
+          // Populate fields
+          document.getElementById("listing-id").value = listing.id;
+          document.getElementById("title").value = listing.title;
+          document.getElementById("category").value = listing.category;
+          document.getElementById("location").value = listing.location;
+          document.getElementById("description").value = listing.description;
+          document.getElementById("details").value = listing.details;
+          document.getElementById("address").value = listing.address;
+          document.getElementById("phone").value = listing.phone || "";
+          document.getElementById("email").value = listing.email || "";
+          document.getElementById("website").value = listing.website || "";
+          document.getElementById("badge").value = listing.badge || "Verified";
+        }
+      }
+
+      // Form Submit Handler
+      const form = document.getElementById("submit-listing-form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const listingData = {
+          id: document.getElementById("listing-id").value || null,
+          title: document.getElementById("title").value,
+          category: document.getElementById("category").value,
+          location: document.getElementById("location").value,
+          description: document.getElementById("description").value,
+          details: document.getElementById("details").value,
+          address: document.getElementById("address").value,
+          phone: document.getElementById("phone").value,
+          email: document.getElementById("email").value,
+          website: document.getElementById("website").value,
+          badge: document.getElementById("badge").value
+        };
+
+        db.saveListing(listingData);
+        window.location.href = "dashboard.html";
+      });
+    </script>
+    <script type="module" src="assets/js/forms.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+  </body>
+</html>

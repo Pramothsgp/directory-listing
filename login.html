@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Log in to your BrandDigits account to manage listings." />
+    <title>Log In | BrandDigits</title>
+    <script src="assets/js/boot.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container site-header__in">
+        <a href="index.html"
+          ><img class="logo" src="assets/images/logo.svg" alt="BrandDigits"
+        /></a>
+        <nav class="nav" id="header-nav">
+          <a href="listings.html">Directory</a>
+          <a href="categories.html">Categories</a>
+          <a href="locations.html">Locations</a>
+        </nav>
+        <div class="actions" id="header-actions">
+          <button class="icon-btn" data-theme-toggle aria-label="Switch theme">☾</button>
+          <a class="btn btn-primary" href="register.html">Get started</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="auth">
+        <div class="card auth-card">
+          <p class="eyebrow">Welcome back</p>
+          <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Log in to BrandDigits</h1>
+          <p class="muted" style="margin-bottom: 1.8rem;">Access your dashboard to manage your listings.</p>
+
+          <div id="error-message" class="alert" style="display: none; background-color: rgba(239, 68, 68, 0.1); color: #ef4444; border-color: rgba(239, 68, 68, 0.15);"></div>
+
+          <form id="login-form" class="form-grid">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" class="field" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" class="field" placeholder="••••••••" required />
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" style="margin-top: 0.5rem;">Log in</button>
+          </form>
+
+          <p class="muted" style="margin-top: 1.5rem; text-align: center; font-size: 0.9rem;">
+            Don't have an account? <a href="register.html" style="color: var(--primary); font-weight: 700;">Sign up free</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <img class="logo" src="assets/images/logo.svg" alt="BrandDigits" />
+            <p class="muted">A modern directory for trusted businesses.</p>
+          </div>
+          <div>
+            <h3>Explore</h3>
+            <div class="footer-links">
+              <a href="listings.html">Directory</a>
+              <a href="categories.html">Categories</a>
+              <a href="locations.html">Locations</a>
+            </div>
+          </div>
+          <div>
+            <h3>Business</h3>
+            <div class="footer-links">
+              <a href="submit-listing.html">Add listing</a>
+              <a href="dashboard.html">Dashboard</a>
+            </div>
+          </div>
+          <div>
+            <h3>Company</h3>
+            <div class="footer-links">
+              <a href="#">About</a>
+              <a href="#">Blog</a>
+              <a href="#">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">© 2026 BrandDigits. Static UI prototype.</div>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { db } from "./assets/js/db.js";
+
+      // If already logged in, go to dashboard
+      if (db.getCurrentUser()) {
+        window.location.href = "dashboard.html";
+      }
+
+      const form = document.getElementById("login-form");
+      const errorMsg = document.getElementById("error-message");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        try {
+          db.loginUser(email, password);
+          window.location.href = "dashboard.html";
+        } catch (error) {
+          errorMsg.textContent = error.message;
+          errorMsg.style.display = "block";
+        }
+      });
+    </script>
+    <script type="module" src="assets/js/main.js"></script>
+  </body>
+</html>

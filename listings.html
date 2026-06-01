@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Business Directory | BrandDigits</title>
+    <script src="assets/js/boot.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container site-header__in">
+        <a href="index.html"
+          ><img class="logo" src="assets/images/logo.svg" alt="BrandDigits"
+        /></a>
+        <nav class="nav">
+          <a href="listings.html">Directory</a
+          ><a href="categories.html">Categories</a
+          ><a href="locations.html">Locations</a
+          ><a href="submit-listing.html">Add listing</a>
+        </nav>
+        <div class="actions">
+          <button class="icon-btn" data-theme-toggle>☾</button
+          ><a class="btn btn-ghost desktop" href="login.html">Log in</a
+          ><a class="btn btn-primary" href="register.html">Get started</a
+          ><button class="icon-btn nav-toggle" data-nav-toggle>☰</button>
+        </div>
+      </div>
+    </header>
+    <nav class="mobile-nav" data-mobile-nav>
+      <a href="listings.html">Directory</a
+      ><a href="categories.html">Categories</a
+      ><a href="locations.html">Locations</a>
+    </nav>
+    <main>
+      <section class="page-head">
+        <div class="container">
+          <div class="crumb"><a href="index.html">Home</a> / Directory</div>
+          <h1>Business directory</h1>
+          <p class="muted">
+            Discover verified businesses and services across the United States.
+          </p>
+          <form class="search" action="listings.html">
+            <input
+              class="field"
+              placeholder="Search businesses or services"
+            /><select class="select">
+              <option>All locations</option>
+              <option>New York</option>
+              <option>Austin</option></select
+            ><button class="btn btn-accent">Search</button>
+          </form>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container filter-layout">
+          <aside>
+            <button class="btn btn-ghost btn-full" data-filter-toggle>
+              Filters
+            </button>
+            <div class="card filter" data-filters>
+              <h3>Refine results</h3>
+              <section>
+                <strong>Category</strong
+                ><label class="check"
+                  ><input type="checkbox" /> Technology</label
+                ><label class="check"><input type="checkbox" /> Marketing</label
+                ><label class="check"
+                  ><input type="checkbox" /> Home services</label
+                ><label class="check"
+                  ><input type="checkbox" /> Healthcare</label
+                >
+              </section>
+              <section>
+                <strong>Location</strong
+                ><select class="select">
+                  <option>Any location</option>
+                  <option>New York</option>
+                  <option>California</option>
+                </select>
+              </section>
+              <section>
+                <strong>Listing type</strong
+                ><label class="check"><input type="checkbox" /> Verified</label
+                ><label class="check"><input type="checkbox" /> Premium</label>
+              </section>
+            </div>
+            <div class="ad ad-side">Advertisement · Sidebar</div>
+          </aside>
+          <div>
+            <div class="toolbar">
+              <span class="muted">Showing 1–8 of 18,432 businesses</span>
+              <div class="cluster">
+                <select class="select">
+                  <option>Most relevant</option>
+                  <option>Newest</option>
+                  <option>A–Z</option></select
+                ><button class="btn btn-ghost btn-small">▦</button
+                ><button class="btn btn-ghost btn-small">☷</button>
+              </div>
+            </div>
+            <div class="grid cards">
+              <article class="card listing">
+                <div class="listing__top">
+                  <b class="listing__logo">NS</b>
+                  <div>
+                    <h3><a href="listing-detail.html">Northstar Studio</a></h3>
+                    <span class="meta">Design Agency · New York</span>
+                  </div>
+                </div>
+                <p>
+                  Brand identity and product design for ambitious companies.
+                </p>
+                <div class="listing__foot">
+                  <span class="badge badge-orange">Premium</span
+                  ><a class="meta" href="listing-detail.html">View profile →</a>
+                </div>
+              </article>
+              <article class="card listing">
+                <div class="listing__top">
+                  <b class="listing__logo">LW</b>
+                  <div>
+                    <h3>LedgerWise</h3>
+                    <span class="meta">Accounting · Austin</span>
+                  </div>
+                </div>
+                <p>Tax strategy and bookkeeping for growing businesses.</p>
+                <div class="listing__foot">
+                  <span class="badge">Verified</span
+                  ><span class="meta">View profile →</span>
+                </div>
+              </article>
+              <article class="card listing">
+                <div class="listing__top">
+                  <b class="listing__logo">GD</b>
+                  <div>
+                    <h3>Greenline Dental</h3>
+                    <span class="meta">Healthcare · Portland</span>
+                  </div>
+                </div>
+                <p>Modern family dentistry with same-day appointments.</p>
+                <div class="listing__foot">
+                  <span class="badge">Featured</span
+                  ><span class="meta">View profile →</span>
+                </div>
+              </article>
+              <article class="card listing">
+                <div class="listing__top">
+                  <b class="listing__logo">PC</b>
+                  <div>
+                    <h3>PixelCraft Labs</h3>
+                    <span class="meta">Technology · San Francisco</span>
+                  </div>
+                </div>
+                <p>Web platforms and mobile apps built for growth.</p>
+                <div class="listing__foot">
+                  <span class="badge">Verified</span
+                  ><span class="meta">View profile →</span>
+                </div>
+              </article>
+              <article class="card listing">
+                <div class="listing__top">
+                  <b class="listing__logo">CS</b>
+                  <div>
+                    <h3>Cedar & Stone</h3>
+                    <span class="meta">Home Services · Denver</span>
+                  </div>
+                </div>
+                <p>Thoughtful interior remodeling and custom cabinetry.</p>
+                <div class="listing__foot">
+                  <span class="badge badge-orange">Premium</span
+                  ><span class="meta">View profile →</span>
+                </div>
+              </article>
+              <article class="card listing">
+                <div class="listing__top">
+                  <b class="listing__logo">BL</b>
+                  <div>
+                    <h3>BrightPath Legal</h3>
+                    <span class="meta">Legal · Chicago</span>
+                  </div>
+                </div>
+                <p>Practical legal advice for founders and local businesses.</p>
+                <div class="listing__foot">
+                  <span class="badge">Verified</span
+                  ><span class="meta">View profile →</span>
+                </div>
+              </article>
+            </div>
+            <div class="pagination">
+              <a class="active">1</a><a>2</a><a>3</a><a>→</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="assets/js/main.js"></script>
+  </body>
+</html>
